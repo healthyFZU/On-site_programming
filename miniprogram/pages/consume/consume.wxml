@@ -1,38 +1,58 @@
-<!--pages/consume/consume.wxml-->
-<view>
-  <!-- <view>本月预算(￥)</view> -->
-    <view class='container' style="height: auto">
-  <form bindsubmit="btnSub">
-
-        <view class="yusuan">本月预算：<input name="budget" type="number" value="{{budget}}"  />
-          <button type="default" size="mini" form-type='submit'>更新</button>
-        </view>
-     
-
-  </form>
-</view>
-</view>
-<view class="page flex-wrp">
-  <view class="flex-item flex-item-center demo-text-1">
-    <view class="flex-item-center-west demo-text-3">
-      <view class='flex-item-center-west-child'><text>本月消费</text></view>
-      <view class='flex-item-center-west-child cost-style'>￥{{monthSpend}}</view>
-      <view class='flex-item-center-west-child'><text>今日消费</text></view>
-      <view class='flex-item-center-west-child cost-style'>￥{{todaySpend}}</view>
-    </view>
-    <view class="flex-item-center-center demo-text-4">
-  <view wx:if='{{usagePercentage==100}}'>
- <vant-circle  value='{{usagePercentage}}' strokeWidth='20' color='red'>{{usagePercentage}}%</vant-circle>
-    </view>
-    <view wx:else=''>
-      <vant-circle  value='{{usagePercentage}}' strokeWidth='20' >{{usagePercentage}}%</vant-circle>
-    </view>
-       </view>
+<view class="page">
+  <!-- 顶部导航 -->
+  <view class="header">
+    <image src="/assets/door_icon.png" class="icon" />
+    <text class="header-text">11月的账单</text>
+    <image src="/assets/calendar_icon.png" class="icon" />
   </view>
-  <view class="flex-item flex-item-south demo-text-2">
-    <view><view>日均消费</view><view>￥{{avgSpendPerDay}}</view></view>
-    <view><view>本月剩余</view><view>￥{{monthAvailable}}</view></view>
-    <view><view>日均可用</view><view>￥{{dayAvgAvailable}}</view></view>
-    <view><view>距离月末</view><view>{{monthLeftDay}}天</view></view>
+
+  <!-- 月度结余部分 -->
+  <view class="summary-card">
+    <view class="summary-row">
+      <text>本月结余</text>
+      <text class="amount">¥ 500.00</text>
+    </view>
+    <view class="summary-row">
+      <text>本月支出</text>
+      <text class="amount">¥ 100.00</text>
+    </view>
+    <view class="summary-row">
+      <text>本月收入</text>
+      <text class="amount">¥ 200.00</text>
+    </view>
+  </view>
+
+  <!-- 提示信息 -->
+  <view class="info-tip">
+    坚持记账！下一个月即可生成专属月报哦~
+  </view>
+
+  <!-- 账单列表 -->
+  <view class="bill-table">
+    <view class="table-header">
+      <view class="table-cell">日期</view>
+      <view class="table-cell">支出</view>
+      <view class="table-cell">收入</view>
+      <view class="table-cell">结余</view>
+      <view class="table-cell arrow">></view>
+    </view>
+
+      <!-- 显示前两条数据 -->
+      <view class="table-row" wx:for="{{day}}" wx:key="index">
+      <view class="table-cell">{{item.day}}</view>
+      <view class="table-cell">{{item.expense}}</view>
+      <view class="table-cell">{{item.income}}</view>
+      <view class="table-cell">{{item.balance}}</view>
+      <view class="table-cell arrow">></view>
+    </view>
+
+    <!-- 如果有更多数据，显示“展示更多”按钮 -->
+    <view wx:if="{{day.length > 2}}" class="show-more" bindtap="showMore">
+      <text>展示更多</text>
+    </view>
+  </view>
+  <!-- 数据可视化图表 -->
+  <view class="chart-container">
+    <ec-canvas id="myChart" canvas-id="myChart" bindinit="initChart"></ec-canvas>
   </view>
 </view>
