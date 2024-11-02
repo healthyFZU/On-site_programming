@@ -1,97 +1,116 @@
-/* pages/consume/consume.wxss */
+/* 设置页面的背景色 */
 page {
   background-color: rgba(239, 239, 240, 1);
 }
-.container {
-  width: 750rpx;
-  border-radius: 30rpx;
 
-  background-color: rgba(255, 255, 255, 1);
-  /* background-color: rgb(126, 218, 247); */
-
+/* 顶部导航栏样式 */
+.header {
   display: flex;
-
-  flex-direction: row;
-
-  box-sizing: border-box;
-
-  font-size: 35rpx;
-
-  color: #333;
-
-  margin: 30rpx auto;
-
+  justify-content: space-between;
+  align-items: center;
   padding: 20rpx;
-  text-align:left
-
-}
-.canvas {
-    width: 100%;
-    height: 100%;
 }
 
-.flex-wrp{
-  margin-top: 150rpx;
-  display:flex;
-  flex-direction:column;
+.icon {
+  width: 50rpx;
+  height: 50rpx;
 }
-.flex-item{
+
+.header-text {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+/* 月度结余部分 */
+.summary-card {
+  margin: 20rpx auto;
+  padding: 20rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+  width: 90%;
+  border: 5rpx solid #000; /* 添加黑色边框 */
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+.amount {
+  color: #f00;
+  font-size: 40rpx;
+}
+
+/* 提示信息样式 */
+.info-tip {
+  background-color: rgba(255, 102, 102, 0.1);
+  color: #ff6666;
+  padding: 10rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  margin: 20rpx auto;
+  width: 90%;
+}
+
+/* 账单列表样式 */
+.bill-table {
+  margin-top: 20rpx;
+  width: 90%;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+  overflow: hidden;
   margin: 0 auto;
-  width: 700rpx;
-  font-size: 28rpx;
 }
 
-.flex-item-center{
-  height: 500rpx;
-  flex-direction:row;
-  display:flex;
-}
-
-.flex-item-south{
-  height: 200rpx;
+/* 表头和行样式 */
+.table-header,
+.table-row {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 15rpx 0; /* 统一上下内边距 */
 }
 
-.flex-item-center-west{
-  flex-direction: column;
+/* 设置每个单元格的宽度 */
+.table-cell {
+  flex: 1; /* 所有单元格均分宽度 */
+  text-align: center;
+  padding: 10rpx; /* 添加内边距 */
 }
 
-.flex-item-center-west-child{
-  height: 150rpx;
-
+/* 设置表头背景颜色和字体 */
+.table-header {
+  background-color: #ffcc66;
+  font-weight: bold;
 }
 
-.flex-item-center-west-child:nth-child(even){
-  text-indent: 16rpx;
+/* 添加行间分隔 */
+.table-row {
+  border-bottom: 1rpx solid #ddd;
+  align-items: center;
 }
 
-/* .demo-text-1{
-  ///background-color: #1AAD19; 
-} */
-.demo-text-2{
-  /* background-color: #2782D7; */
-  padding-top: 100rpx;
+/* 确保箭头的宽度固定 */
+.arrow {
+  color: #888;
+  text-align: right;
+  width: 30rpx; /* 固定宽度 */
 }
 
-.demo-text-3{
-  /* background-color: #fAAD19; */
-  width: 50%;
-}
-.demo-text-4 {
-  /* background-color: #e782D7; */
-  width: 50%;
-  padding-top: 150rpx;
-  padding-left:50rpx;
+/* 展示更多按钮样式 */
+.show-more {
+  text-align: center;
+  padding: 10rpx;
+  color: #007aff; /* 蓝色字体 */
+  cursor: pointer; /* 鼠标悬停效果 */
 }
 
-.cost-style {
-  color: #39f;
-  font-size: 50rpx;
-}
-.yusuan{
-  display: flex;
+/*图表容器样式*/
+.chart-container {
+  margin: 20rpx auto;
+  width: 90%;
+  height: 300rpx;
+}       
 
-
-}
