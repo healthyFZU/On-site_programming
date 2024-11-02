@@ -1,0 +1,38 @@
+<!--pages/consume/consume.wxml-->
+<view>
+  <!-- <view>本月预算(￥)</view> -->
+    <view class='container' style="height: auto">
+  <form bindsubmit="btnSub">
+
+        <view class="yusuan">本月预算：<input name="budget" type="number" value="{{budget}}"  />
+          <button type="default" size="mini" form-type='submit'>更新</button>
+        </view>
+     
+
+  </form>
+</view>
+</view>
+<view class="page flex-wrp">
+  <view class="flex-item flex-item-center demo-text-1">
+    <view class="flex-item-center-west demo-text-3">
+      <view class='flex-item-center-west-child'><text>本月消费</text></view>
+      <view class='flex-item-center-west-child cost-style'>￥{{monthSpend}}</view>
+      <view class='flex-item-center-west-child'><text>今日消费</text></view>
+      <view class='flex-item-center-west-child cost-style'>￥{{todaySpend}}</view>
+    </view>
+    <view class="flex-item-center-center demo-text-4">
+  <view wx:if='{{usagePercentage==100}}'>
+ <vant-circle  value='{{usagePercentage}}' strokeWidth='20' color='red'>{{usagePercentage}}%</vant-circle>
+    </view>
+    <view wx:else=''>
+      <vant-circle  value='{{usagePercentage}}' strokeWidth='20' >{{usagePercentage}}%</vant-circle>
+    </view>
+       </view>
+  </view>
+  <view class="flex-item flex-item-south demo-text-2">
+    <view><view>日均消费</view><view>￥{{avgSpendPerDay}}</view></view>
+    <view><view>本月剩余</view><view>￥{{monthAvailable}}</view></view>
+    <view><view>日均可用</view><view>￥{{dayAvgAvailable}}</view></view>
+    <view><view>距离月末</view><view>{{monthLeftDay}}天</view></view>
+  </view>
+</view>
