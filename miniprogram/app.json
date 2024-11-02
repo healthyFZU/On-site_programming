@@ -12,7 +12,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#B0C4DE",
-    "navigationBarTitleText": "团子记账",
+    "navigationBarTitleText": "记账喵",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh":true
     

@@ -19,46 +19,44 @@
         </view>
       </picker>
 </view> -->
-  <view class='containere' style="height: auto">
+<view class='containere' style="height: auto">
   <!-- <view class="page-section"> -->
       <picker name="rq" mode="date" value="{{date}}"  bindchange="bindDateChange">
         <view class="picker">
-           选择日期：
+           今日日期：
            {{date}}
         </view>
       </picker>
   </view>
   <view class='containere' style="height: auto">
-    <van-divider contentPosition="center">---当日总价：{{dayprice}}---</van-divider>
+    <van-divider contentPosition="center">---总消费：51 元---</van-divider>
   </view>
 
 
 <!-- </view> -->
    <view class='container' style="height: auto">
-  <van-divider contentPosition="center">账单</van-divider>
+  <van-divider contentPosition="center">消费记录</van-divider>
+
 <view  wx:for="{{dataList}}" wx:key="index">
   <view wx:if="{{ dataList.length != 0 }}">
   <view class="shuoying">{{index+1}}</view>
   <view class="srq">{{item.rq}}</view>
   <view class='view_tupian_wenzi'>
-  <block  wx:if="{{item.fl==0}}">
-    <image class="image" src="{{img1}}" />
-  </block>
-<block  wx:if="{{item.fl==1}}">
-  <image class="image" src="{{img2}}" mode="topleft" />
-</block>
-<block   wx:if="{{item.fl==2}}">
-  <image  class="image" src="{{img3}}" mode="topleft"  />
-</block>
-<block  wx:if="{{item.fl==3}}">
-  <image class="image" src="{{img4}}" mode="topleft" />
-</block>
-<block  wx:if="{{item.fl==4}}">
-  <image class="image" src="{{img5}}" mode="topleft" />
-</block>
-  <view class="view_wenzi2">{{item.hf}}￥
-  <view class="text_small">备注:{{item.bz}}</view>
+  
+  <view class="view_wenzi2">{{item.hf}}￥19
+  <view class="text_small">备注: 奶茶</view>
+
 </view>
+
+<records>
+  <record>
+    <view class="view_wenzi2">{{item.hf}}￥32
+      <view class="text_small">备注: 购物</view>
+    </view>
+  </record>
+
+</records>
+
 </view>
   </view>
   <!-- <view slot="footer"> -->
@@ -70,6 +68,8 @@
 <view wx:if="{{ dataList.length == 0 }}">
    <view>这里空空如也</view> 
   </view>
+
+
 </view>
 
 <!-- <form bindsubmit='formsubmit'> -->
@@ -173,3 +173,6 @@
           <van-button size="mini"  data-id="{{id}}" bind:click="deleteData">删除</van-button>
         </view>  -->
          <!-- </van-card> -->
+
+
+         

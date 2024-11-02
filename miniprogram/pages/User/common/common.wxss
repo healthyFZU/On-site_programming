@@ -2,7 +2,7 @@
   
     width: 690rpx;
     border-radius: 30rpx;
-    background-color: rgb(222, 233, 247);
+    background-color: rgb(218, 185, 155);
     display: flex;
     flex-direction: column;
     box-sizing: border-box;

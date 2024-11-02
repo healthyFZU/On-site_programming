@@ -1,6 +1,10 @@
 <!--pages/User/User.wxml-->
 <!--pages/User/User.wxml-->
-<view class="container">
+<view class="background-container">  
+  <image class="background-image" src="1.jpg" mode="aspectFill"></image>  
+  <!-- 其他内容 -->  
+</view>
+<view class="container"> 
 <!-- 头像昵称begin -->
 <view class='mytop-box'>
       <view class="mytop-avatar">
@@ -20,15 +24,15 @@
 </view>
 
 <view class="container1">
-<button bindtap="navigateToTuanzi">您与团子</button>
+<button bindtap="navigateToTuanzi">您与喵喵</button>
 </view>
 
 
 
 
   <view >
-                <button style="background: #1CC88A; color: #fff; width:70%; " class="button-row" title="团子记账" id="shareBtn" open-type="share" type="primary">
-                  <view>分享团子</view>
+    <button style="background: white; color: black; width:500rpx; font-size: 35rpx;" class="button-row" title="记账喵" id="shareBtn" open-type="share" type="primary">
+                  <view>分享喵喵</view>
                 </button>
               </view>
 

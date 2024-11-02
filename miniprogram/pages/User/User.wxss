@@ -1,15 +1,23 @@
 /* pages/User/User.wxss */
 .container{
+ 
 	width: 780rpx;
   border-radius: 0rpx;
-  background-color: #B0C4DE;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   font-size: 35rpx;
-  color: #333;
+  color: rgb(241, 145, 34);
   margin: 0rpx auto;
   padding: 60rpx;
+}
+.background-image {  
+  position: absolute;  
+  top: 0;  
+  left: 0;  
+  width: 100%;  
+  height: 100%;  
+  z-index: -1; /* 确保图片位于其他内容之下 */  
 }
 .button-row{
   font-size: 14px;
@@ -30,7 +38,7 @@
   word-wrap: break-word;
 }
 .container1{
-  width: 800rpx;
+  width: 500rpx;
   margin: 50rpx auto;
   font-size: 35rpx;
   /* padding: 20rpx; */
@@ -56,7 +64,7 @@
   height: 130rpx; 
   left: 50%;  
   border-radius: 50%;  
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);  
+  box-shadow: 3px 3px 10px;  
 }
 .mytop-username{
   font-size: 35rpx;

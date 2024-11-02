@@ -1,13 +1,13 @@
 .body{
 	margin-top:10px;
 }
-
 .item{
 	display: flex;
 	flex-direction: row;
 	padding-left: 20rpx;
 	margin: 0;
-	align-items: center;
+  align-items: center;
+  background-color: antiquewhite;
 }
 .item_img{
 	width: 40px;

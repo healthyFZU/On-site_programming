@@ -1,175 +1,93 @@
-<!--pages/report/report.wxml-->
-
-<view class='head'>
-<view class="{{head0}}"  bindtap='bindDayChange'>
-
-<!-- <picker name="rq" mode="date" fields="day" value="{{day}}"  bindchange="bindDayChange" start="2020-12-01" end="2022-12-01">
-        <view class="picker">
-					七日支出：
-           {{day}}
-        </view>
-      </picker> -->
-
-<view>
-			<view wx:if="{{month==01||month=='03'||month=='05'||month=='07'||month=='08'||month=='10'||month=='12'}}">
-			<picker name="rq" mode="selector"  value="{{dd}}"  bindchange="bindDayChange" range="{{array1}}">
-        <view class="picker">
-					七日支出：
-           {{dd}}日
-        </view>
-      </picker>
-			</view>
-			<view wx:if="{{month=='04'||month=='06'||month=='09'||month=='11'}}">
-				<picker name="rq" mode="selector"  value="{{dd}}"  bindchange="bindDayChange" range="{{array2}}">
-        <view class="picker">
-					七日支出：
-           {{dd}}日
-        </view>
-      </picker>
-			</view>
-			<view wx:if="{{year=='r'&&month=='02'}}">
-				<picker name="rq" mode="selector"  value="{{dd}}"  bindchange="bindDayChange" range="{{array3}}">
-        <view class="picker">
-					七日支出：
-           {{dd}}
-        </view>
-      </picker>
-			</view>
-			<view wx:if="{{year=='p'&&month=='02'}}">
-				<picker name="rq" mode="selector"  value="{{dd}}"  bindchange="bindDayChange" range="{{array4}}">
-        <view class="picker">
-					七日支出：
-           {{dd}}
-        </view>
-      </picker>
-			</view>
-</view>
-</view>
+<!-- pages/report/report.wxml -->
 
 
-	<view class="{{head1}}" >
-		<picker name="rq" mode="date" fields="month" value="{{date}}"  bindchange="bindDateChange" start="2020-12-01" end="2022-12-01">
-        <view class="picker">
-					 月份：
-					 <!-- {{DATE}} -->
-           {{date}}
-        </view>
-      </picker>
-</view>
+<view class='head' style="background-image: url('miniprogram/pages/report/beijing.jpg'); background-size: cover; background-position: center;">
+  <view class="{{head0}}" bindtap='bindDayChange'>
+    <!-- 七日支出选择器 -->
+    <view>
+      <view wx:if="{{month=='01'||month=='03'||month=='05'||month=='07'||month=='08'||month=='10'||month=='12'}}">
+        <picker name="rq" mode="selector" value="{{dd}}" bindchange="bindDayChange" range="{{array1}}">
+          <view class="picker">
+            七日支出：{{dd}}日
+          </view>
+        </picker>
+      </view>
+      <view wx:if="{{month=='04'||month=='06'||month=='09'||month=='11'}}">
+        <picker name="rq" mode="selector" value="{{dd}}" bindchange="bindDayChange" range="{{array2}}">
+          <view class="picker">
+            七日支出：{{dd}}日
+          </view>
+        </picker>
+      </view>
+      <view wx:if="{{year=='r'&&month=='02'}}">
+        <picker name="rq" mode="selector" value="{{dd}}" bindchange="bindDayChange" range="{{array3}}">
+          <view class="picker">
+            七日支出：{{dd}}
+          </view>
+        </picker>
+      </view>
+      <view wx:if="{{year=='p'&&month=='02'}}">
+        <picker name="rq" mode="selector" value="{{dd}}" bindchange="bindDayChange" range="{{array4}}">
+          <view class="picker">
+            七日支出：{{dd}}
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class="{{head1}}">
+    <!-- 月份选择器 -->
+    <picker name="rq" mode="date" fields="month" value="{{date}}" bindchange="bindDateChange" start="2020-12-01" end="2024-12-01">
+      <view class="picker">
+        月份：{{date}}
+      </view>
+    </picker>
+  </view>
 </view>
 
-
-
-<!-- <view class="container1">
-      <picker name="rq" mode="date" fields="month" value="{{date}}"  bindchange="bindDateChange" start="2020-12-01" end="2022-12-01">
-        <view class="picker">
-					 月份：
-					
-           {{date}}
-        </view>
-      </picker>
-</view> -->
-
-
+<!-- 图表和统计信息 -->
 <view class="container">
-	<view class="title">
-	<view wx:if="{{flagpie==true}}">{{chartTitle}}</view>
-	<view wx:if="{{flagcolumn==true}}">{{chartQTtitle}}</view>
-	</view>
-	<view wx:if="{{flagpie==true}}">
-	<view  class='paint1' wx:if="{{allcost==0}}">
-		这里空空如也，这个月您还没有记账哦！快去记账吧！
-	</view>
-<view wx:else><canvas canvas-id="pieCanvas" class="canvas"></canvas></view>
-	</view>
-	<view wx:if="{{flagcolumn==true}}">
-	<canvas canvas-id="columnCanvas" class="canvas"></canvas>
-	</view>
+  <view class="title">
+    <view wx:if="{{flagpie==true}}">{{chartTitle}}</view>
+    <view wx:if="{{flagcolumn==true}}">{{chartQTtitle}}</view>
+  </view>
+  <view wx:if="{{flagpie==true}}">
+    <view class='paint1' wx:if="{{allcost==0}}">
+      这里空空如也，这个月您还没有记账哦！快去记账吧！
+    </view>
+    <view wx:else>
+      <canvas canvas-id="pieCanvas" class="canvas"></canvas>
+    </view>
+  </view>
+  <view wx:if="{{flagcolumn==true}}">
+    <canvas canvas-id="columnCanvas" class="canvas"></canvas>
+  </view>
 </view>
-<!-- <button type="primary" bindtap="getD">点击获取数据</button> -->
- <!-- <view  wx:for="{{dataObj}}">
-<view wx:if="{{item.fl==0}}">餐饮-{{item.hf}}-{{item.bz}}</view>
-<view wx:elif="{{item.fl==1}}">交通-{{item.hf}}</view>
-<view wx:elif="{{item.fl==2}}">通讯-{{item.hf}}</view>
-<view wx:elif="{{item.fl==3}}">购物-{{item.hf}}</view>
-<view wx:elif="{{item.fl==4}}">其他-{{item.hf}}</view> -->
 
-<!-- </view> -->
-
-<!-- <button type="primary" bindtap="reloadPage">重新加载页面</button> -->
-
+<!-- 总计信息 -->
 <view class="paintZJ">
-	<view class="paint1"> 
-		<image  src="cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/总价.png" style="width:30px; height:30px"></image>
-		
-		本月总价:{{allcost}}￥
-		</view>
-
-	<view class="paint1"> 
-		<image  src="cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/canying.png" style="width:30px; height:30px"></image>
-		餐饮总价:{{Cprice}}￥
-		</view>
-
-<view class="paint1">
-	<image  src="cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/交通.png" style="width:30px; height:30px"></image>
-	交通总价:{{JTPrice}}￥</view>
-<view class="paint1">
-	<image  src="cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/通讯.png" style="width:30px; height:30px"></image>
-	通讯总价:{{TXPrice}}￥</view>
-<view class="paint1">
-	<image  src=cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/购物.png" style="width:30px; height:30px"></image>
-	购物总价:{{ShoppingPrice}}￥</view>
-<view class="paint1">
-	<image  src="cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/其他.png" style="width:30px; height:30px"></image>
-	其他总价:{{QTPrice}}￥</view>
+  <view class="paint1">
+    <image src="cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/总价.png" style="width:30px; height:30px"></image>
+    本月总价:{{allcost}}￥
+  </view>
+  <view class="paint1">
+    <image src="cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/canying.png" style="width:30px; height:30px"></image>
+    餐饮总价:{{Cprice}}￥
+  </view>
+  <view class="paint1">
+    <image src="cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/交通.png" style="width:30px; height:30px"></image>
+    交通总价:{{JTPrice}}￥
+  </view>
+  <view class="paint1">
+    <image src="cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/通讯.png" style="width:30px; height:30px"></image>
+    通讯总价:{{TXPrice}}￥
+  </view>
+  <view class="paint1">
+    <image src="cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/购物.png" style="width:30px; height:30px"></image>
+    购物总价:{{ShoppingPrice}}￥
+  </view>
+  <view class="paint1">
+    <image src="cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/其他.png" style="width:30px; height:30px"></image>
+    其他总价:{{QTPrice}}￥
+  </view>
 </view>
-
-
-<!-- <view>----------------------------</view>
-<view wx:for="{{List}}" wx:key='index'>
-	<view>{{index+1}}</view>
-<view wx:if="{{item.fl==0}}">餐饮-{{item.hf}}-{{item.bz}}-{{item.rq}}</view>
-<view wx:elif="{{item.fl==1}}">交通-{{item.hf}}-{{item.bz}}-{{item.rq}}</view>
-<view wx:elif="{{item.fl==2}}">通讯-{{item.hf}}-{{item.bz}}-{{item.rq}}</view>
-<view wx:elif="{{item.fl==3}}">购物-{{item.hf}}-{{item.bz}}-{{item.rq}}</view>
-<view wx:elif="{{item.fl==4}}">其他-{{item.hf}}-{{item.bz}}-{{item.rq}}</view>
-</view>
-
-<view>----@@@@--------------------</view>
-
-<view wx:for="{{CYlist}}" wx:key='index'>
-<view>
-	<view wx:if="{{item.fl==0}}">{{index+1}}-餐饮-{{item.hf}}-{{item.bz}}-{{item.rq}}</view>
-</view>
-</view>
-<view>----@@@@--------------------</view>
-
-
-<view wx:for="{{JTList}}">
-<view>
-	<view wx:if="{{item.fl==1}}">交通-{{item.hf}}-{{item.bz}}-{{item.rq}}</view>
-</view>
-</view>
-<view>----------------------------</view>
-<view wx:for="{{TXList}}">
-<view>
-	<view wx:if="{{item.fl==2}}">通讯-{{item.hf}}-{{item.bz}}-{{item.rq}}</view>
-</view>
-</view>
-<view>----------------------------</view>
-<view wx:for="{{ShoppingList}}">
-<view>
-	<view wx:if="{{item.fl==3}}">购物-{{item.hf}}-{{item.bz}}-{{item.rq}}</view>
-</view>
-</view>
-<view>----------------------------</view>
-<view wx:for="{{QTList}}">
-<view>
-	<view wx:if="{{item.fl==4}}">其他-{{item.hf}}-{{item.bz}}-{{item.rq}}</view>
-</view>
-</view>
-<view>----------------------------</view>
-
-
-
- -->
