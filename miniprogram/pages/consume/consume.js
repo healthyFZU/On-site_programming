@@ -7,26 +7,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    //本月预算
-    budget: 0,
-    //本月消费
-    monthSpend: 0,
-    //今日消费
-    todaySpend: 0,
-    //日均消费
-    avgSpendPerDay: 0,
-    //本月剩余
-    monthAvailable: 0,
-    //日均可用
-    dayAvgAvailable: 0,
-    //距离月末
-    monthLeftDay: 0,
-    //使用比例
-    usagePercentage: 0,
-    //是否超支
-    isOverSpend: false,
-    Number: 0,
-    List: ''
+    day: [
+      { day: '今天', expense: '0.00', income: '0.00', balance: '0.00' },
+      { day: '昨天', expense: '0.00', income: '0.00', balance: '0.00' },
+      { day: '03', expense: '0.00', income: '0.00', balance: '0.00' },
+      { day: '02', expense: '0.00', income: '0.00', balance: '0.00' },
+      { day: '01', expense: '0.00', income: '0.00', balance: '0.00' },
+      // 添加其他月份数据
+      // 继续添加更多数据...
+    ],
+    displayedCount: 2 // 当前显示的行数
+  },
+  
+  showMore: function() {
+    const newCount = this.data.displayedCount + 2; // 每次增加两行
+    this.setData({
+      displayedCount: newCount
+    });
   },
   onAdd: function () {
     wx.cloud.callFunction({
