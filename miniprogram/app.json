@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/consume/consume",
+    "pages/charge/charge",
+    "pages/category/category",
+    "pages/report/report",
+    "pages/User/User",
+    "pages/User/rate/rate",
+    "pages/User/common/common"
+  
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#B0C4DE",
+    "navigationBarTitleText": "团子记账",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh":true
+    
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#64a0ea",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/consume/consume",
+        "iconPath": "img/home.png",
+        "selectedIconPath": "img/home-active.png",
+        "text": "消费一览"
+      },
+      {
+        "pagePath": "pages/charge/charge",
+        "iconPath": "img/record.png",
+        "selectedIconPath": "img/record-active.png",
+        "text": "记一笔"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "iconPath": "img/category.png",
+        "selectedIconPath": "img/category-active.png",
+        "text": "消费明细"
+      },
+      {
+        "pagePath": "pages/report/report",
+        "iconPath": "img/report.png",
+        "selectedIconPath": "img/report-active.png",
+        "text": "消费报表"
+      },
+      {
+        "pagePath": "pages/User/User",
+        "iconPath": "img/User.png",
+        "selectedIconPath": "img/User_active.png",
+        "text": "个人"
+      }
+      
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

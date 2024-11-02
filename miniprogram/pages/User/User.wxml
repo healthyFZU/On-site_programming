@@ -1,0 +1,35 @@
+<!--pages/User/User.wxml-->
+<!--pages/User/User.wxml-->
+<view class="container">
+<!-- 头像昵称begin -->
+<view class='mytop-box'>
+      <view class="mytop-avatar">
+        <open-data  type="userAvatarUrl"></open-data><!-- 获取用户图像 -->
+      </view>
+      <view class='mytop-username'>
+        <open-data type="userNickName"></open-data><!-- 获取用户昵称 -->
+      </view>
+    </view>
+  <!-- 头像昵称end -->
+</view>
+
+
+
+<view class="container1">
+<button bindtap="navigateToDetail">汇率计算</button>
+</view>
+
+<view class="container1">
+<button bindtap="navigateToTuanzi">您与团子</button>
+</view>
+
+
+
+
+  <view >
+                <button style="background: #1CC88A; color: #fff; width:70%; " class="button-row" title="团子记账" id="shareBtn" open-type="share" type="primary">
+                  <view>分享团子</view>
+                </button>
+              </view>
+
+

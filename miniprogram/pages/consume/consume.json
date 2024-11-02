@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "vant-circle":"../../miniprogram_npm/@vant/weapp/circle"
+  }
+}

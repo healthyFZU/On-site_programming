@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+		"van-notice-bar": "@vant/weapp/image"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}
