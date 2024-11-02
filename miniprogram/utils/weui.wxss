@@ -2,6 +2,8 @@
 page {
   line-height: 1.6;
   font-family: -apple-system-font, "Helvetica Neue", sans-serif;
+  background-image: url('../img/back.jpg');
+  background-size: cover;
 }
 icon {
   vertical-align: middle;

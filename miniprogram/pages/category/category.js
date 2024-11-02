@@ -1,60 +1,47 @@
 // pages/category/category.js
-// const db = wx.cloud.database()
-// const _=db.command;
-const app = getApp()
-const db = wx.cloud.database()
-var util=require("../../utils/util")
+const app = getApp();
+const db = wx.cloud.database();
+var util = require("../../utils/util");
+
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
-    img1:  'cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/canying.png',
-    img2:'cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/交通.png',
-    img3:'cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/通讯.png',
-    img4:'cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/购物.png',
-    img5:'cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/其他.png',
+    img1: 'cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/canying.png',
+    img2: 'cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/交通.png',
+    img3: 'cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/通讯.png',
+    img4: 'cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/购物.png',
+    img5: 'cloud://cloud1-7gko5ynq797bcfa6.636c-cloud1-7gko5ynq797bcfa6-1305669469/图表库/其他.png',
     fl: [
       { text: '餐饮', value: 0 },
       { text: '交通', value: 1 },
       { text: '通讯', value: 2 },
       { text: '购物', value: 3 },
     ],
-    dataList:[],
-    openid:'',
-    datee:'',
-    dayprice:'请选择日期',
-    date:'',
-    dateee:''
-   
+    dataList: [], // 测试数据将在这里定义
+    openid: '',
+    datee: '',
+    dayprice: '请选择日期',
+    date: '',
+    dateee: ''
   },
+
   onLoad: function (options) {
-    this.getData()
-   //获取当前时间
+    this.setData({
+      dataList: this.getTestData() // 设置测试数据
+    });
+
+    // 获取当前时间
     var DATE = util.formDate(new Date());
-     this.setData({
-     date: DATE,
-});
+    this.setData({
+      date: DATE,
+    });
   },
-  getData(){
-    // this.setData({
-    //   dataList:[]
-    // })
-    wx.cloud.callFunction({
-      name:"getallcost",
-      data:{
-        openid: app.globalData.openid,
-      }
-    }).then(res=>{
-      var Data=res.result.data
-      // var newData=oldData.concat(res.result.data)
-      // console.log(res.result.data)
-      this.setData({
-        dataList:Data
-      })
-  
-    })
-    },
+
+  // 测试数据函数
+  getTestData: function () {
+    return [
+      { 金额: '222', 备注: '测试数据1' },{ 金额: '188', 备注: '测试数据2' }
+    ];
+  },
 
    bindDateChange: function (e) {
     this.globalData = {

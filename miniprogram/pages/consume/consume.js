@@ -10,9 +10,9 @@ Page({
     day: [
       { day: '今天', expense: '0.00', income: '0.00', balance: '0.00' },
       { day: '昨天', expense: '0.00', income: '0.00', balance: '0.00' },
-      { day: '03', expense: '0.00', income: '0.00', balance: '0.00' },
-      { day: '02', expense: '0.00', income: '0.00', balance: '0.00' },
-      { day: '01', expense: '0.00', income: '0.00', balance: '0.00' },
+      { day: '前天', expense: '0.00', income: '0.00', balance: '0.00' },
+      { day: '三天前', expense: '0.00', income: '0.00', balance: '0.00' },
+      { day: '四天前', expense: '0.00', income: '0.00', balance: '0.00' },
       // 添加其他月份数据
       // 继续添加更多数据...
     ],
